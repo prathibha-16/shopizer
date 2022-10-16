@@ -1,0 +1,18 @@
+pipeline {
+     agent {label 'python'} 
+     triggers {
+        pollSCM('* * * * *')
+     }
+     stages {
+         stage('clone') { 
+             steps {
+                 git url:'https://github.com/prathibha-16/shopizer.git' , branch : 'develop' 
+             }
+         }
+         stage('install') { 
+             steps {
+                sh'mvn package' 
+             }
+         }
+     }
+ }
