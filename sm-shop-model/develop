@@ -1,7 +1,7 @@
 pipeline {
      agent {label 'nvm'} 
      triggers {
-        pollSCM('* * * * *')
+        pollSCM('30 17 * * *')
      }
      stages {
          stage('clone') { 
